@@ -1,5 +1,7 @@
 # How many patterns Android screen lock supports?  Let's calculate it ...
 # (note: this small program requests Python 3)
+# Github settings: set softtabstop=4 tabstop=4 shiftwidth=4 expandtab fileencoding=utf-8:
+# -*- coding: utf-8; Mode: python; tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*-
 
 # The graph of Android screen lock includes 9 nodes
 Graph = {1, 2, 3, 4, 5, 6, 7, 8, 9}
