@@ -9,22 +9,22 @@ Graph = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}
 
 # Each node has few neighbors as following
 Neighbors = [
-    {2, 5, 6},                  # 1
-    {1, 3, 5, 6, 7},            # 2
-    {2, 4, 6, 7, 8},            # 3
-    {3, 7, 8},                  # 4
-    {1, 2, 6, 9, 10},           # 5
-    {1, 2, 3, 5, 7, 9, 10, 11}, # 6
-    {2, 3, 4, 6, 8, 10, 11, 12},# 7
-    {3, 4, 7, 11, 12},          # 8
-    {5, 6, 10, 13, 14},         # 9
-    {5, 6, 7, 9, 11,13,14,15},  # 10
-    {6, 7, 8, 10,12,14,15,16},  # 11
-    {7, 8, 11, 15, 16},         # 12
-    {9, 10, 14},                # 13
-    {9, 10, 11, 13, 15},        # 14
-    {10, 11, 12, 14, 16},       # 15
-    {11, 12, 15}                # 16
+    {2, 5, 6},                      # 1
+    {1, 3, 5, 6, 7},                # 2
+    {2, 4, 6, 7, 8},                # 3
+    {3, 7, 8},                      # 4
+    {1, 2, 6, 9, 10},               # 5
+    {1, 2, 3, 5, 7, 9, 10, 11},     # 6
+    {2, 3, 4, 6, 8, 10, 11, 12},    # 7
+    {3, 4, 7, 11, 12},              # 8
+    {5, 6, 10, 13, 14},             # 9
+    {5, 6, 7, 9, 11, 13, 14, 15},   # 10
+    {6, 7, 8, 10, 12, 14, 15, 16},  # 11
+    {7, 8, 11, 15, 16},             # 12
+    {9, 10, 14},                    # 13
+    {9, 10, 11, 13, 15},            # 14
+    {10, 11, 12, 14, 16},           # 15
+    {11, 12, 15}                    # 16
 ]
 
 # Each node has few neighbors as following
@@ -40,8 +40,8 @@ Neighbors = [
     #{2, 4, 5, 6, 8}             # 9
 #]
 
-# But some "lazy" guys may not use "tricky" connections (e.g. from node 1 to 
-# node 6 or 8).  To calculate that scenario, we can replace the Neighbors ... 
+# But some "lazy" guys may not use "tricky" connections (e.g. from node 1 to
+# node 6 or 8).  To calculate that scenario, we can replace the Neighbors ...
 # Neighbors = [
 #   {2, 4, 5},                  # 1
 #   {1, 3, 4, 5, 6},            # 2
@@ -57,12 +57,14 @@ Neighbors = [
 # Total number of solutions (for each length) will be stored here
 Solutions = [0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0, 0]
 
+
 # Print text tree log with "node" and "length"
 def log(node, length):
     string = ""
     for i in range(0, length):
         string += "."
-    print( string + str(node) )
+    print(string + str(node))
+
 
 # Recursively scan current "graph" from the "node" with current "length"
 def scan(graph, node, length):
@@ -70,10 +72,10 @@ def scan(graph, node, length):
     subgraph = graph - {node}
 
     #log(node, length)
-    
-    for each_node in Neighbors[node-1]:
+
+    for each_node in Neighbors[node - 1]:
         if each_node in subgraph:
-            scan(subgraph, each_node, length+1)
+            scan(subgraph, each_node, length + 1)
 
 # Scan all possible patterns
 for each_node in Graph:
